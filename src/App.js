@@ -1,10 +1,13 @@
 import './App.css';
-import { useState } from 'react';
-import PokemonName from "./PokemonName"
+
+import PokemonName from "./PokemonName";
 
 function App() {
   return (
-    <div>
+    <div className="wrapper">
+      <header>
+        <h1>Pokedex</h1>
+      </header>
       <div>
         <PokemonName/>
       </div>

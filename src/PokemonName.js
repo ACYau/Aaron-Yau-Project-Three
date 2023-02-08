@@ -7,29 +7,50 @@ export default function PokemonName() {
         setData(childdata);
     }
     const [searchedPokemon, setSearchedPokemon] = useState([]);
+    const [searchedPokemonMoves, setSearchedPokemonMoves] = useState([]);
 
     //stores previously searched pokemon
     useEffect(()=>{
         const pokemonURL = `https://pokeapi.co/api/v2/pokemon/${data}`;
         async function getPokemon(){
-            const data = await fetch(pokemonURL);
-            const pokemon = await data.json();
+            const results = await fetch(pokemonURL);
+            const pokemon = await results.json();
+            //resets state for pokemon moves
+            setSearchedPokemonMoves([])
             return pokemon
         }
         getPokemon()
             .then((pokemon) => {
-                setSearchedPokemon(searchedPokemon => searchedPokemon.concat(pokemon.name))
-        });
+                var arr = [{id: pokemon.id, name: pokemon.name, sprite: pokemon.sprites.front_default}]
+                setSearchedPokemon(searchedPokemon => searchedPokemon.concat(arr))
+                var moveSet = pokemon.moves
+                //maps through an array of objects and appends the move names to an array
+                moveSet.map((moveset) => setSearchedPokemonMoves(searchedPokemonMoves => searchedPokemonMoves.concat(moveset.move.name)))
+            });
     }, [data])
 
     return (
         <div>
-            {searchedPokemon.join(" ")}
-            <div className="child">
+            {/* .filter(Boolean) filters any undefined values */}
+            <div className = "previousSelections">
+                {searchedPokemon.filter(Boolean).map((pokemon) => <button key={pokemon.id}> {pokemon.name} </button>)}
+            </div>
+
+            <div>
                 <div className="child">
-                <Child childToParent={childToParent}/>
+                    <Child childToParent={childToParent}/>
                 </div>
-                {data}
+                <h1>{data}</h1>
+                <div>
+                    <img>
+                        {/* src={searchedPokemon.pokemon.sprites.front_default} */}
+                    </img>
+                </div>
+                <ul>
+                    {searchedPokemonMoves.filter(Boolean).map((moves) =>
+                        <li> {moves} </li>
+                    )}
+                </ul>
             </div>
         </div>
     )

@@ -1,7 +1,7 @@
 import React from 'react'
 import {useState} from 'react';
 
-export default function Child({childToParent},) {
+export default function Child({childToParent}) {
     const [search, setSearch] = useState([]);
     const data = search;
     //prevents page from refreshing
@@ -9,7 +9,6 @@ export default function Child({childToParent},) {
         e.preventDefault();
         const searchPokemonName = search;
     }
-
     return (
         <div>
             <form onSubmit= {submitHandler}>

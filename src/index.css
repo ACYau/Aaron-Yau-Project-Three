@@ -1,13 +1,86 @@
-body {
+html, body, div, span, applet, object, h1, h2, h3, h4, h5, h6, p, a, img, ol, ul, li, form, label, table, embed, footer, header, menu, nav, section {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+footer, header, section {
+  display: block; }
+
+*, *:before, *:after {
+  box-sizing: border-box; }
+
+body {
+  font-family: 'Helvetica';
+  background-color: papayawhip;
+  color: black;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.wrapper {
+  min-width: 1200px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+header, .previousSelections {
+  background-color: gold;
+  padding: 30px 15px; 
+}
+
+h1 {
+  text-align: center;
+  color: navy;
+  font-size: 35px;
+  font-weight: 600;
+  margin-bottom: 50px;
+}
+
+img {
+  display: block;
+  max-width: 100%; 
+}
+
+h2 {
+  color: #c8c097;
+  font-size: 30px;  
+}
+
+h3 {
+  font-size: 25px;
+  font-style: italic;
+}
+
+h2, h3 {
+  margin-bottom: 15px;
+}
+
+p {
+  color: #fff;
+  line-height: 1.5; 
+}
+
+
+ul{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+
+form{
+  padding-top: 50px;
+  padding-bottom: 50px;
+  text-align: center;
+}
+
+input[type=text]{
+  margin-right: 20px;
+  margin-left: 10px;
 }
