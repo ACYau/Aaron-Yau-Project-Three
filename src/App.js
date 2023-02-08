@@ -1,10 +1,13 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import PokemonName from "./PokemonName"
 
 function App() {
   return (
-    <div className="App">
-      
+    <div>
+      <div>
+        <PokemonName/>
+      </div>
     </div>
   );
 }
