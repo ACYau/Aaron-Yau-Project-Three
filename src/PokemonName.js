@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react';
-import Child from './Child';
+import FormSubmission from './FormSubmission';
 
 export default function PokemonName() {
     const [data, setData] = useState('');
@@ -8,6 +8,7 @@ export default function PokemonName() {
     }
     const [searchedPokemon, setSearchedPokemon] = useState([]);
     const [searchedPokemonMoves, setSearchedPokemonMoves] = useState([]);
+    const [searchedPokemonSprite, setSearchedPokemonSprite] = useState([]);
 
     //stores previously searched pokemon
     useEffect(()=>{
@@ -16,7 +17,8 @@ export default function PokemonName() {
             const results = await fetch(pokemonURL);
             const pokemon = await results.json();
             //resets state for pokemon moves
-            setSearchedPokemonMoves([])
+            setSearchedPokemonMoves([]);
+            setSearchedPokemonSprite([]);
             return pokemon
         }
         getPokemon()
@@ -26,6 +28,9 @@ export default function PokemonName() {
                 var moveSet = pokemon.moves
                 //maps through an array of objects and appends the move names to an array
                 moveSet.map((moveset) => setSearchedPokemonMoves(searchedPokemonMoves => searchedPokemonMoves.concat(moveset.move.name)))
+
+                var spriteArray = [{frontSprite: pokemon.sprites.front_default, backSprite: pokemon.sprites.back_default, name: pokemon.name}]
+                setSearchedPokemonSprite(searchedPokemonSprite => searchedPokemonSprite.concat(spriteArray))
             });
     }, [data])
 
@@ -33,18 +38,34 @@ export default function PokemonName() {
         <div>
             {/* .filter(Boolean) filters any undefined values */}
             <div className = "previousSelections">
-                {searchedPokemon.filter(Boolean).map((pokemon) => <button key={pokemon.id}> {pokemon.name} </button>)}
+                {searchedPokemon.filter(Boolean).map((pokemon) =>
+                    <button key={pokemon.id}> {pokemon.name}
+                        <img 
+                            src={pokemon.sprite}
+                            alt={`Default Front View for ${pokemon.name}`} 
+                        />
+                    </button>
+                )}
             </div>
 
-            <div>
-                <div className="child">
-                    <Child childToParent={childToParent}/>
+            <div className="wrapper">
+                <div className="inputFields">
+                    <FormSubmission childToParent={childToParent}/>
                 </div>
-                <h1>{data}</h1>
+                <h2>{data}</h2>
                 <div>
-                    <img>
-                        {/* src={searchedPokemon.pokemon.sprites.front_default} */}
-                    </img>
+                    {searchedPokemonSprite.filter(Boolean).map((sprites) =>
+                        <div className = "spriteView">
+                            <img className = "sprites"
+                                src={sprites.frontSprite}
+                                alt={`Default Front View for ${sprites.name}`} 
+                            />
+                            <img className = "sprites"
+                                src={sprites.backSprite}
+                                alt={`Default Back View for ${sprites.name}`} 
+                            />
+                        </div>
+                    )}
                 </div>
                 <ul>
                     {searchedPokemonMoves.filter(Boolean).map((moves) =>

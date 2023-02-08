@@ -13,7 +13,7 @@ export default function Child({childToParent}) {
         <div>
             <form onSubmit= {submitHandler}>
                 <label>
-                    Pokemon:
+                    POKEMON:
                     <input type="text" name="pokemonName" onChange = {event => setSearch(event.target.value)}/>
                 </label>
                 {/* On click event, the child element populates empty div*/}
