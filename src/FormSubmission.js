@@ -7,7 +7,6 @@ export default function Child({childToParent}) {
     //prevents page from refreshing
     function submitHandler(e) {
         e.preventDefault();
-        const searchPokemonName = search;
     }
     return (
         <div>
