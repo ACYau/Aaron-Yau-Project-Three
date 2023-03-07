@@ -19,26 +19,21 @@ body {
 }
 
 .wrapper {
-  min-width: 300px;
+  min-width: 240px;
   width: 80%;
   margin: 0 auto;
   min-height: 60vh;
 }
 
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-header, .previousSelections {
+header, .previousSelections{
   background-color: rgb(255, 182, 193);
   padding: 30px 15px; 
 }
 
+
 h1 {
   text-align: center;
-  font-size: 70px;
+  font-size: 50px;
   font-weight: 600;
   margin-bottom: 25px;
 }
@@ -65,11 +60,9 @@ p {
   line-height: 1.5; 
 }
 
-
-ul{
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(4, 1fr);
+label{
+  font-size: 25px;
+  font-weight: bold;
 }
 
 form{
@@ -83,6 +76,7 @@ input[type=text]{
   padding: 10px;
   margin-right: 20px;
   margin-left: 10px;
+  margin-top: 15px;
   font-size: 20px;
   border: none;
   box-shadow:
@@ -102,24 +96,7 @@ input[type=submit]{
         2px 2px 2px 3px red;
   margin-right: 20px;
   margin-left: 10px;
-}
-
-label{
-  font-size: 25px;
-  font-weight: bold;
-}
-
-button{
-  height: 150px;
-  width: 150px;
-  border-radius: 50%;
-  font-size: 20px;
-  background-color: peachpuff;
-  border: none;
-  margin-right: 10px;
-  box-shadow:
-        0 0 2px 3px rgb(255, 182, 193),
-        2px 2px 2px 3px red;
+  margin-top: 20px;
 }
 
 .spriteView{
@@ -131,12 +108,12 @@ button{
   width: 200px;
 }
 
-footer{
-  margin-top: 50px;
-  background-color: rgb(255, 182, 193);
-  padding-top: 75px;
-  text-align: center;
-  padding-bottom: 75px;
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 li{
@@ -147,4 +124,95 @@ li{
   height: 50px;
   line-height: 50px;
   background-color: rgb(253, 221, 226);
+}
+
+.previousSelections{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+button{
+  width: 16%;
+  border-radius: 50%;
+  font-size: 20px;
+  background-color: peachpuff;
+  border: none;
+  margin-top: 10px;
+  margin-right: 10px;
+  box-shadow:
+        0 0 2px 3px rgb(255, 182, 193),
+        2px 2px 2px 3px red;
+}
+
+footer{
+  margin-top: 50px;
+  background-color: rgb(255, 182, 193);
+  padding-top: 75px;
+  text-align: center;
+  padding-bottom: 75px;
+}
+
+@media (min-width: 440px) {
+  ul{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 600px) {
+  ul{
+    grid-template-columns: repeat(4, 1fr);
+  }
+  button{
+    width: 8%;
+    max-width: 95px;
+  }
+}
+
+@media (min-width: 760px) {
+  ul{
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (min-width: 920px) {
+  ul{
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media (min-width: 1080px) {
+  ul{
+    grid-template-columns: repeat(7, 1fr);
+  }
+}
+
+@media (min-width: 1240px) {
+  ul{
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+
+@media (min-width: 1400px) {
+  ul{
+    grid-template-columns: repeat(9, 1fr);
+  }
+}
+
+@media (min-width: 1560px) {
+  ul{
+    grid-template-columns: repeat(10, 1fr);
+  }
+}
+
+@media (min-width: 1720px) {
+  ul{
+    grid-template-columns: repeat(11, 1fr);
+  }
+}
+
+@media (min-width: 1880px) {
+  ul{
+    grid-template-columns: repeat(12, 1fr);
+  }
 }

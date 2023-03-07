@@ -35,11 +35,11 @@ export default function PokemonName() {
     }, [data])
 
     return (
-        <div>
+        <div className="previousSelectionsBackground">
             {/* .filter(Boolean) filters any undefined values */}
             <div className = "previousSelections">
                 {searchedPokemon.filter(Boolean).map((pokemon) =>
-                    <button key={pokemon.id}> {pokemon.name}
+                    <button key={pokemon.id}>
                         <img 
                             src={pokemon.sprite}
                             alt={`Default Front View for ${pokemon.name}`} 
