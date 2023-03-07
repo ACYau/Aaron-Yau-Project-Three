@@ -13,7 +13,8 @@ export default function Child({childToParent}) {
             <form onSubmit= {submitHandler}>
                 <label>
                     POKEMON:
-                    <input type="text" name="pokemonName" onChange = {event => setSearch(event.target.value)}/>
+                    {/* converts user input to all lowercase since the API accepts the pokemon name in all lowercase */}
+                    <input type="text" name="pokemonName" onChange = {event => setSearch(event.target.value.toLowerCase())}/>
                 </label>
                 {/* On click event, the child element populates empty div*/}
                 <input type="submit" value="Submit" onClick={() => childToParent(data)}/>
