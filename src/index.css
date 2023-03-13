@@ -99,6 +99,16 @@ input[type=submit]{
   margin-top: 20px;
 }
 
+input[type=submit]:hover, input[type=submit]:focus{
+  transform: scale(0.90);
+  transition: 0.75s;
+  color: peachpuff;
+  background-color: red;
+  box-shadow:
+        0 0 2px 3px red,
+        2px 2px 2px 3px rgb(255, 182, 193);
+}
+
 .spriteView{
   text-align: center;
   height: 200px;
@@ -143,6 +153,10 @@ button{
   box-shadow:
         0 0 2px 3px rgb(255, 182, 193),
         2px 2px 2px 3px red;
+}
+button:hover, button:focus {
+  transition: 0.5s;
+  transform: scale(0.95);
 }
 
 footer{
