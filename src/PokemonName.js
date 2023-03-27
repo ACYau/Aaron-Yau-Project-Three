@@ -34,6 +34,12 @@ export default function PokemonName() {
                 if (searchedPokemon.length > 9){
                     searchedPokemon.shift()
                 }
+                //Removes duplicates (oldest entry)
+                for (let i=0; i < searchedPokemon.length; i++){
+                    if(JSON.stringify(arr[0]) === JSON.stringify(searchedPokemon[i])){
+                        searchedPokemon.splice(i,1)
+                    }
+                }
                 var moveSet = pokemon.moves
                 //maps through an array of objects and appends the move names to an array
                 moveSet.map((moveset) => setSearchedPokemonMoves(searchedPokemonMoves => searchedPokemonMoves.concat(moveset.move.name)))
