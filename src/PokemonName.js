@@ -34,7 +34,7 @@ export default function PokemonName() {
                 if (searchedPokemon.length > 9){
                     searchedPokemon.shift()
                 }
-                //Removes duplicates (oldest entry)
+                //Removes duplicates (oldest entry from SearchedPokemon array)
                 for (let i=0; i < searchedPokemon.length; i++){
                     if(JSON.stringify(arr[0]) === JSON.stringify(searchedPokemon[i])){
                         searchedPokemon.splice(i,1)
