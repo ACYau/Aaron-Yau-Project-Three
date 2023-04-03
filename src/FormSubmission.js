@@ -6,6 +6,8 @@ export default function Child({childToParent}) {
     function submitHandler(e) {
         //resets form entry
         document.getElementById("pokemonNameForm").reset()
+        //removes instructions
+        document.getElementById("pokedexInstructions").innerHTML = "";
         //prevents page from refreshing
         e.preventDefault();
     }
@@ -20,6 +22,14 @@ export default function Child({childToParent}) {
                 {/* On click event, the child element populates empty div*/}
                 <input type="submit" value="Submit" onClick={() => childToParent(search)}/>
             </form>
+            <div class="pokedexInstructions" id="pokedexInstructions">
+                <h3>
+                    <u><b>Instructions:</b></u>
+                    <br></br>
+                    <br></br>
+                    Please type the name of the Pokemon you would like to search! This Pokedex will return the image of the Pokemon and a list of moves it can learn!
+                </h3>
+            </div>
         </div>
     )
 }

@@ -109,12 +109,21 @@ input[type=submit]:hover, input[type=submit]:focus{
         2px 2px 2px 3px rgb(255, 182, 193);
 }
 
+.pokedexInstructions{
+  text-align: center;
+}
+
 .spriteView{
   text-align: center;
   height: 200px;
+  margin-bottom: 30px;
 }
 
 .sprites{
+  margin-right: 30px;
+  box-shadow:
+        0 0 1px 1px rgb(255, 182, 193),
+        1px 1px 1px 1px red;
   width: 200px;
 }
 
