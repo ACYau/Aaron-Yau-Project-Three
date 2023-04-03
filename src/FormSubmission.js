@@ -6,7 +6,7 @@ export default function Child({childToParent}) {
     function submitHandler(e) {
         //resets form entry
         document.getElementById("pokemonNameForm").reset()
-        //removes instructions
+        //removes instructions after searching for a Pokemon
         document.getElementById("pokedexInstructions").innerHTML = "";
         //prevents page from refreshing
         e.preventDefault();
